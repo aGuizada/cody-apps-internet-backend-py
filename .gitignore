@@ -50,3 +50,4 @@ cover/
 *.swo
 .DS_Store
 Thumbs.db
+.env.original
