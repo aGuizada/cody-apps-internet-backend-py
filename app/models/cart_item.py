@@ -1,4 +1,5 @@
 from typing import Optional
+# pyrefly: ignore [missing-import]
 from sqlmodel import Field, SQLModel
 
 class CartItemBase(SQLModel):

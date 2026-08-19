@@ -35,3 +35,8 @@ def delete_cart_item(*, session: SessionDep, current_user: CurrentUser, item_id:
     if not removed:
         raise HTTPException(status_code=404, detail="Item de carrito no encontrado")
     return {"detail": "Item eliminado del carrito"}
+
+
+
+
+    

@@ -1,21 +1,9 @@
-# pyrefly: ignore [missing-import]
 from fastapi import FastAPI
-# pyrefly: ignore [missing-import]
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
 from app.core.config import settings
 from app.core.database import create_db_and_tables
-
-# IMPORTANTE: Importar TODOS los modelos antes de create_db_and_tables()
-# para que SQLAlchemy registre todas las tablas y pueda resolver
-# las claves foráneas (FK) correctamente al momento de insertar datos.
-from app.models.user import User  # noqa: F401
-from app.models.category import Category  # noqa: F401
-from app.models.product import Product  # noqa: F401
-from app.models.review import Review  # noqa: F401
-from app.models.cart_item import CartItem  # noqa: F401
-from app.models.task import Task  # noqa: F401
 
 # Lifespan: Lo que se ejecuta exactamente al encender o apagar el servidor web
 @asynccontextmanager
@@ -38,7 +26,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     # Durante desarrollo acepta de cualquier Frontend Angular local
-    allow_origins=["http://localhost:4200", "http://localhost:8080"],
+    allow_origins=["http://localhost:4200", "http://localhost:8080"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
